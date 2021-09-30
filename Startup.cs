@@ -30,6 +30,7 @@ namespace HelpWanted
         {
             services.AddRazorPages();
             services.AddControllers();
+            services.AddServerSideBlazor();
             services.AddTransient<JsonToProjectService>();
         }
 
@@ -58,6 +59,7 @@ namespace HelpWanted
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapBlazorHub();
             });
         }
     }

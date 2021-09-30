@@ -1,6 +1,7 @@
 @page "/AddProject"
 @using System.IO;
 @using System.Text;
+@using HelpWanted.Components;
 @model AddProjectModel
 @{
     ViewData["Title"] = "Add Project";
@@ -8,22 +9,6 @@
 <h1>@ViewData["Title"]</h1>
 
 
-<input placeholder="Username" name = "Name">
-<input placeholder="Project Name" name = "ProjName">
-<input placeholder="Project Description" name = "ProjDec">
-<input placeholder="Help Wanted" name = "HelpWanted">
+@(await Html.RenderComponentAsync<AddProject>(RenderMode.ServerPrerendered))
 
-@{
-
-    string name;
-    string projectName;
-    string projectDescription;
-    string helpWanted;
-    void Submit()
-    {
-        name = Request.Form["Name"];
-        projectName = Request.Form["ProjName"];
-        projectDescription = Request.Form["ProjDec"];
-        helpWanted = Request.Form["HelpWanted"];
-    }
-}
+<script src="_framework/blazor.server.js"></script>

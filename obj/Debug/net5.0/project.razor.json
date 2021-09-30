@@ -12,9 +12,9 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -1164150364,
+        "HashCode": 500435919,
         "Kind": "Components.Component",
-        "Name": "HelpWanted.Pages.AddProject",
+        "Name": "HelpWanted.Components.AddProject",
         "AssemblyName": "HelpWanted",
         "CaseSensitive": true,
         "TagMatchingRules": [
@@ -24,23 +24,23 @@
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HelpWanted.Pages.AddProject"
+          "Common.TypeName": "HelpWanted.Components.AddProject"
         }
       },
       {
-        "HashCode": 1250633823,
+        "HashCode": -403222291,
         "Kind": "Components.Component",
-        "Name": "HelpWanted.Pages.AddProject",
+        "Name": "HelpWanted.Components.AddProject",
         "AssemblyName": "HelpWanted",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "HelpWanted.Pages.AddProject"
+            "TagName": "HelpWanted.Components.AddProject"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HelpWanted.Pages.AddProject",
+          "Common.TypeName": "HelpWanted.Components.AddProject",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -15652,6 +15652,11 @@
   "RootNamespace": "HelpWanted",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Components\\AddProject.razor",
+      "TargetPath": "Components\\AddProject.razor",
+      "FileKind": "component"
+    },
+    {
       "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\AddProject.cshtml",
       "TargetPath": "Pages\\AddProject.cshtml",
       "FileKind": "mvc"
@@ -15665,11 +15670,6 @@
       "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\Shared\\_Layout.cshtml",
       "TargetPath": "Pages\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\AddProject.razor",
-      "TargetPath": "Pages\\AddProject.razor",
-      "FileKind": "component"
     },
     {
       "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\Privacy.cshtml",

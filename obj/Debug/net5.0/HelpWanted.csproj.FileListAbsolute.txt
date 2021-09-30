@@ -38,9 +38,9 @@ C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\ref\HelpWanted.dll
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\HelpWanted.pdb
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\HelpWanted.genruntimeconfig.cache
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\HelpWanted.csproj.CopyComplete
+C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Pages\AddProject.cshtml.g.cs
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\HelpWanted.RazorComponent.input.cache
-C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\RazorDeclaration\Pages\AddProject.razor.g.cs
+C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\RazorDeclaration\Components\AddProject.razor.g.cs
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\HelpWanted.RazorComponent.output.cache
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\RazorDeclaration\HelpWanted.dll
-C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Pages\AddProject.razor.g.cs
-C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Pages\AddProject.cshtml.g.cs
+C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Components\AddProject.razor.g.cs
