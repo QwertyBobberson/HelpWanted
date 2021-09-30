@@ -1,0 +1,33 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1>Hello World</h1>
+    <p>Time on the server is @DateTime.Now</p>
+</div>
+
+<AddProject />
+
+<div class = "card-columns">
+    @foreach (var project in Model.Projects)
+    {
+        <div class = "card">
+            <div class = "card-head" align="center">
+                <h4>@project.ProjectName</h4>
+            </div>
+            <div class = "card-footer" align="center">
+                <p>@project.ProjectDescription</p>
+            </div>
+            <div class = "card-footer" align="center">
+                <p>@project.HelpNeeded</p>
+            </div>
+            <div class = "card-body" align="center">
+                <h9>@project.Name</h9>
+            </div>
+        </div>
+    }
+</div>
+

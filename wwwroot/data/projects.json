@@ -1,0 +1,27 @@
+[
+    {
+        "user": "Matteo Harris",
+        "project name": "Jumpstart 2.0",
+        "project description": "Redesigning Jumpstart to be more modular and allowing for more information to be displayed",
+        "help needed": "usurping Beckett and taking control of the project"
+    },
+    {
+        "user": "Nate Mount",
+        "project name": "TKML",
+        "project description": "A custom markup language for the TKinter framework, can be used to create mods for Nate's music player",
+        "help needed": "none"
+    },
+    {
+        "user": "Chris Ebrhim",
+        "project name": "Help Wanted",
+        "project description": "A website for posting in progress projects and the skills or tools you need help with",
+        "help needed": "Connecting to databases and receiving input from a website"
+    },
+    {
+        "user": "Robert Hochgraf",
+        "project name": "Dining Density",
+        "project description": "A website for checking the density of all the dining locations around campus in real time",
+        "help needed": "Not overloading RIT's API system bc everything is done on the frontend"
+    }
+]
+
