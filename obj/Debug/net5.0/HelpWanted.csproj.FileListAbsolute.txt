@@ -25,7 +25,6 @@ C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\HelpWanted.TagHelp
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\HelpWanted.RazorCoreGenerate.cache
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
-C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Pages\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Pages\_ViewImports.cshtml.g.cs

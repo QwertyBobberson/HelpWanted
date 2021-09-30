@@ -15672,11 +15672,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
