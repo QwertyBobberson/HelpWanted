@@ -4,23 +4,26 @@
 @using System.IO;
 @using System.Text;
 
-<ul align="center">
-    <li>
+<div align="center">
+    <div>
         <input placeholder="Username" @bind="username">
-    </li>
-    <li>
+    </div>
+    <div>
         <input placeholder="Project Name" @bind="projName">
-    </li>
-    <li>
+    </div>
+    <div>
         <input placeholder="Project Description" @bind="projDesc">
-    </li>
-    <li>
+    </div>
+    <div>
         <input placeholder="Help Needed" @bind="helpNeeded">
-    </li>
-</ul>
+    </div>
+    <div>
+        <button @onclick="Submit" align="center">
+            Submit
+        </button>
+    </div>
+</div>
 
-
-<button @onclick="Submit">Submit</button>
 
 @code{
     string username;
@@ -30,10 +33,20 @@
 
     void Submit()
     {
-        Project newProj = new Project(username, projName, projDesc, helpNeeded);
+        if(username == null || projName == null || projDesc == null || helpNeeded == null)
+        {
+            return;
+        }
 
-        MongoDBAccess mongoDBAccess = new MongoDBAccess("Projects");
+        Project newProj = new Project(username, projName, projDesc, helpNeeded, new Guid());
 
-        mongoDBAccess.AddItem<Project>("Projects", newProj);
+        MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
+
+        mongoDBAccess.AddItem<Project>(MongoDBAccess.collectionName, newProj);
+
+        username = null;
+        projName = null;
+        projDesc = null;
+        helpNeeded = null;
     }
 }

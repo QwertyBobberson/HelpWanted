@@ -1,0 +1,100 @@
+@using Microsoft.AspNetCore.Components.Web;
+@using HelpWanted.Models;
+@using HelpWanted.Services;
+@using System.IO;
+@using System.Text;
+@using System;
+
+<div align="center">
+    <div>
+        <input placeholder="Username" @bind="username">
+    </div>
+    <div>
+        <input placeholder="Project Name" @bind="projName">
+    </div>
+    <div>
+        <button @onclick="Search" align="center">
+            Search
+        </button>
+    </div>
+    <div>
+        <input placeholder="Project Description" @bind="projDesc">
+    </div>
+    <div>
+        <input placeholder="Help Needed" @bind="helpNeeded">
+    </div>
+    <div>
+        <button @onclick="Submit" align="center">
+            Edit
+        </button>
+    </div>
+    <div>
+        <button @onclick="Delete" align="center">
+            Delete
+        </button>
+    </div>
+</div>
+
+@code{
+    string username;
+    string projName;
+    string projDesc;
+    string helpNeeded;
+
+    Guid currentProject;
+
+    void Search()
+    {
+        MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
+
+        List<Project> projects = mongoDBAccess.GetItems<Project>(MongoDBAccess.databaseName);
+
+        for(int i = 0; i < projects.Count(); i++)
+        {
+            if(username == projects[i].Name && projName == projects[i].ProjectName)
+            {
+                projDesc = projects[i].ProjectDescription;
+                helpNeeded = projects[i].HelpNeeded;
+                currentProject = projects[i].id;
+            }
+        }
+    }
+
+    void Submit()
+    {        
+        if(username == null || projName == null || projDesc == null || helpNeeded == null)
+        {
+            return;
+        }
+
+        Project editedProj = new Project(username, projName, projDesc, helpNeeded, currentProject);
+        MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
+
+        mongoDBAccess.EditItem<Project>(MongoDBAccess.collectionName, currentProject, editedProj);
+        
+        username = null;
+        projName = null;
+        projDesc = null;
+        helpNeeded = null;
+        currentProject = Guid.Empty;
+    }
+
+    void Delete()
+    {
+        if(username == null || projName == null || projDesc == null || helpNeeded == null)
+        {
+            return;
+        }
+
+        Project editedProj = new Project(username, projName, projDesc, helpNeeded, currentProject);
+        MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
+
+        mongoDBAccess.RemoveItem<Project>(MongoDBAccess.collectionName, currentProject);
+        
+        username = null;
+        projName = null;
+        projDesc = null;
+        helpNeeded = null;
+        currentProject = Guid.Empty;
+    }
+}

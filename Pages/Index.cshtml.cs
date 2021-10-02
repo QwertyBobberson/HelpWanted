@@ -22,8 +22,8 @@ namespace HelpWanted.Pages
 
         public void OnGet()
         {
-            MongoDBAccess db = new MongoDBAccess("Projects");
-            Projects = db.GetItems<Project>("Projects");
+            MongoDBAccess db = new MongoDBAccess(MongoDBAccess.databaseName);
+            Projects = db.GetItems<Project>(MongoDBAccess.databaseName);
         }
     }
 }

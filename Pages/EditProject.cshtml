@@ -1,0 +1,14 @@
+@page "/EditProject"
+@using System.IO;
+@using System.Text;
+@using HelpWanted.Components;
+@model EditProjectModel
+@{
+    ViewData["Title"] = "Add Project";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+@(await Html.RenderComponentAsync<EditProject>(RenderMode.ServerPrerendered))
+
+<script src="_framework/blazor.server.js"></script>

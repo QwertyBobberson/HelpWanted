@@ -45,6 +45,39 @@
         }
       },
       {
+        "HashCode": 605583509,
+        "Kind": "Components.Component",
+        "Name": "HelpWanted.Components.EditProject",
+        "AssemblyName": "HelpWanted",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "EditProject"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HelpWanted.Components.EditProject"
+        }
+      },
+      {
+        "HashCode": -1828239344,
+        "Kind": "Components.Component",
+        "Name": "HelpWanted.Components.EditProject",
+        "AssemblyName": "HelpWanted",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "HelpWanted.Components.EditProject"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HelpWanted.Components.EditProject",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 2085601310,
         "Kind": "Components.Component",
         "Name": "Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView",
@@ -15657,6 +15690,11 @@
       "FileKind": "component"
     },
     {
+      "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\EditProject.cshtml",
+      "TargetPath": "Pages\\EditProject.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\AddProject.cshtml",
       "TargetPath": "Pages\\AddProject.cshtml",
       "FileKind": "mvc"
@@ -15670,6 +15708,11 @@
       "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\Shared\\_Layout.cshtml",
       "TargetPath": "Pages\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Components\\EditProject.razor",
+      "TargetPath": "Components\\EditProject.razor",
+      "FileKind": "component"
     },
     {
       "FilePath": "c:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\Pages\\_ViewStart.cshtml",

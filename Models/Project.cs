@@ -12,7 +12,7 @@ namespace HelpWanted.Models
     public class Project
     {
         [BsonId]
-        public Guid id;
+        public Guid id {get; set;}
         [JsonPropertyName("user")]
         public string Name {get; set;}
         [JsonPropertyName("projName")]
@@ -27,12 +27,13 @@ namespace HelpWanted.Models
 
         }
 
-        public Project(string name, string projectName, string projectDescription, string helpNeeded)
+        public Project(string name, string projectName, string projectDescription, string helpNeeded, Guid _id)
         {
             Name = name;
             ProjectName = projectName;
             ProjectDescription = projectDescription;
             HelpNeeded = helpNeeded;
+            id = _id;
         }
 
         public override string ToString()

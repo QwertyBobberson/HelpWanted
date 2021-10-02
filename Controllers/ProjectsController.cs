@@ -14,8 +14,8 @@ namespace HelpWanted.Controllers
         [HttpGet]
         public IEnumerable<Project> Get()
         {
-            MongoDBAccess mongoDBAccess = new MongoDBAccess("Projects");
-            return mongoDBAccess.GetItems<Project>("Projects");
+            MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
+            return mongoDBAccess.GetItems<Project>(MongoDBAccess.databaseName);
         }
     }
 }

@@ -55,7 +55,7 @@ using System.Text;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 25 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 28 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
       
     string username;
     string projName;
@@ -64,11 +64,23 @@ using System.Text;
 
     void Submit()
     {
-        Project newProj = new Project(username, projName, projDesc, helpNeeded);
+        Console.WriteLine(username + projName + projDesc + helpNeeded);
 
-        MongoDBAccess mongoDBAccess = new MongoDBAccess("Projects");
+        if(username == null || projName == null || projDesc == null || helpNeeded == null)
+        {
+            return;
+        }
 
-        mongoDBAccess.AddItem<Project>("Projects", newProj);
+        Project newProj = new Project(username, projName, projDesc, helpNeeded, new Guid());
+
+        MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
+
+        mongoDBAccess.AddItem<Project>(MongoDBAccess.collectionName, newProj);
+
+        username = null;
+        projName = null;
+        projDesc = null;
+        helpNeeded = null;
     }
 
 #line default
