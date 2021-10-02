@@ -4,6 +4,10 @@
 @using System.IO;
 @using System.Text;
 @using System;
+@using MongoDB;
+@using MongoDB.Driver;
+@using MongoDB.Bson.Serialization.Attributes;
+@using MongoDB.Bson;
 
 <div align="center">
     <div>
@@ -41,7 +45,7 @@
     string projDesc;
     string helpNeeded;
 
-    Guid currentProject;
+    BsonBinaryData currentProject;
 
     void Search()
     {
@@ -76,7 +80,7 @@
         projName = null;
         projDesc = null;
         helpNeeded = null;
-        currentProject = Guid.Empty;
+        currentProject = new BsonBinaryData(null);
     }
 
     void Delete()
@@ -95,6 +99,6 @@
         projName = null;
         projDesc = null;
         helpNeeded = null;
-        currentProject = Guid.Empty;
+        currentProject = new BsonBinaryData(null);
     }
 }

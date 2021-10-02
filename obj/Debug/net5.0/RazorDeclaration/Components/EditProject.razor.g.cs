@@ -53,6 +53,34 @@ using System;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 7 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+using MongoDB;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 8 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+using MongoDB.Driver;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 9 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+using MongoDB.Bson.Serialization.Attributes;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 10 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+using MongoDB.Bson;
+
+#line default
+#line hidden
+#nullable disable
     public partial class EditProject : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -61,14 +89,14 @@ using System;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 42 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
       
     string username;
     string projName;
     string projDesc;
     string helpNeeded;
 
-    Guid currentProject;
+    BsonBinaryData currentProject;
 
     void Search()
     {
@@ -103,7 +131,7 @@ using System;
         projName = null;
         projDesc = null;
         helpNeeded = null;
-        currentProject = Guid.Empty;
+        currentProject = new BsonBinaryData(null);
     }
 
     void Delete()
@@ -122,7 +150,7 @@ using System;
         projName = null;
         projDesc = null;
         helpNeeded = null;
-        currentProject = Guid.Empty;
+        currentProject = new BsonBinaryData(null);
     }
 
 #line default

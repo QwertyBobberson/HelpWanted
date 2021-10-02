@@ -12,7 +12,7 @@ namespace HelpWanted.Models
     public class Project
     {
         [BsonId]
-        public Guid id {get; set;}
+        public BsonBinaryData id {get; set;}
         [JsonPropertyName("user")]
         public string Name {get; set;}
         [JsonPropertyName("projName")]
@@ -27,7 +27,7 @@ namespace HelpWanted.Models
 
         }
 
-        public Project(string name, string projectName, string projectDescription, string helpNeeded, Guid _id)
+        public Project(string name, string projectName, string projectDescription, string helpNeeded, BsonBinaryData _id)
         {
             Name = name;
             ProjectName = projectName;

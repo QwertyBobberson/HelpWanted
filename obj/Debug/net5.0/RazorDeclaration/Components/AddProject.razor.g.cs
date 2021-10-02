@@ -47,6 +47,13 @@ using System.Text;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+using MongoDB.Bson;
+
+#line default
+#line hidden
+#nullable disable
     public partial class AddProject : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -55,7 +62,7 @@ using System.Text;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 29 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
       
     string username;
     string projName;
@@ -64,14 +71,12 @@ using System.Text;
 
     void Submit()
     {
-        Console.WriteLine(username + projName + projDesc + helpNeeded);
-
         if(username == null || projName == null || projDesc == null || helpNeeded == null)
         {
             return;
         }
 
-        Project newProj = new Project(username, projName, projDesc, helpNeeded, new Guid());
+        Project newProj = new Project(username, projName, projDesc, helpNeeded, new BsonBinaryData(null));
 
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 

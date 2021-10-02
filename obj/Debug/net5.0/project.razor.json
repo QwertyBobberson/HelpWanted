@@ -12,39 +12,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 500435919,
-        "Kind": "Components.Component",
-        "Name": "HelpWanted.Components.AddProject",
-        "AssemblyName": "HelpWanted",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "AddProject"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HelpWanted.Components.AddProject"
-        }
-      },
-      {
-        "HashCode": -403222291,
-        "Kind": "Components.Component",
-        "Name": "HelpWanted.Components.AddProject",
-        "AssemblyName": "HelpWanted",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "HelpWanted.Components.AddProject"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HelpWanted.Components.AddProject",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 605583509,
         "Kind": "Components.Component",
         "Name": "HelpWanted.Components.EditProject",
@@ -74,6 +41,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "HelpWanted.Components.EditProject",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 500435919,
+        "Kind": "Components.Component",
+        "Name": "HelpWanted.Components.AddProject",
+        "AssemblyName": "HelpWanted",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "AddProject"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HelpWanted.Components.AddProject"
+        }
+      },
+      {
+        "HashCode": -403222291,
+        "Kind": "Components.Component",
+        "Name": "HelpWanted.Components.AddProject",
+        "AssemblyName": "HelpWanted",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "HelpWanted.Components.AddProject"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HelpWanted.Components.AddProject",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

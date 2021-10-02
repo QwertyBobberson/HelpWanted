@@ -3,6 +3,7 @@
 @using HelpWanted.Services;
 @using System.IO;
 @using System.Text;
+@using MongoDB.Bson;
 
 <div align="center">
     <div>
@@ -38,7 +39,7 @@
             return;
         }
 
-        Project newProj = new Project(username, projName, projDesc, helpNeeded, new Guid());
+        Project newProj = new Project(username, projName, projDesc, helpNeeded, new BsonBinaryData(null));
 
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 

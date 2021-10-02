@@ -31,7 +31,7 @@ namespace HelpWanted.Services
             return collection.Find(new BsonDocument()).ToList();
         }
 
-        public void EditItem<T>(string table, Guid id, T item)
+        public void EditItem<T>(string table, BsonBinaryData id, T item)
         {
             var collection = db.GetCollection<T>(table);
             collection.ReplaceOne(
@@ -41,7 +41,7 @@ namespace HelpWanted.Services
             );
         }
 
-        public void RemoveItem<T>(string table, Guid id)
+        public void RemoveItem<T>(string table, BsonBinaryData id)
         {
             var collection = db.GetCollection<T>(table);
             var filter = Builders<T>.Filter.Eq("_id", id);
