@@ -76,7 +76,7 @@ using MongoDB.Bson;
             return;
         }
 
-        Project newProj = new Project(username, projName, projDesc, helpNeeded, new BsonBinaryData(null));
+        Project newProj = new Project(username, projName, projDesc, helpNeeded);
 
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 

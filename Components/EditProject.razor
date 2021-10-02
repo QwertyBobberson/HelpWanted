@@ -45,7 +45,7 @@
     string projDesc;
     string helpNeeded;
 
-    BsonBinaryData currentProject;
+    Guid currentProject;
 
     void Search()
     {
@@ -71,7 +71,8 @@
             return;
         }
 
-        Project editedProj = new Project(username, projName, projDesc, helpNeeded, currentProject);
+        Project editedProj = new Project(username, projName, projDesc, helpNeeded);
+        editedProj.id = currentProject;
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 
         mongoDBAccess.EditItem<Project>(MongoDBAccess.collectionName, currentProject, editedProj);
@@ -80,7 +81,6 @@
         projName = null;
         projDesc = null;
         helpNeeded = null;
-        currentProject = new BsonBinaryData(null);
     }
 
     void Delete()
@@ -90,15 +90,15 @@
             return;
         }
 
-        Project editedProj = new Project(username, projName, projDesc, helpNeeded, currentProject);
+        Project editedProj = new Project(username, projName, projDesc, helpNeeded);
+        editedProj.id = currentProject;
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 
         mongoDBAccess.RemoveItem<Project>(MongoDBAccess.collectionName, currentProject);
-        
+
         username = null;
         projName = null;
         projDesc = null;
         helpNeeded = null;
-        currentProject = new BsonBinaryData(null);
     }
 }

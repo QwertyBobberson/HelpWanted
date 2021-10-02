@@ -4,12 +4,9 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1>Hello World</h1>
-    <p>Time on the server is @DateTime.Now</p>
-</div>
-
-<AddProject />
+<h1 align="center">
+    There are currently @Model.Projects.Count() projects requesting help!
+</h1>
 
 <div class = "card-columns">
     @foreach (var project in Model.Projects)
