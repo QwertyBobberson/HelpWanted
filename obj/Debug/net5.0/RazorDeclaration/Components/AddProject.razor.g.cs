@@ -55,7 +55,7 @@ using System.Text;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 25 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
       
     string username;
     string projName;
@@ -64,20 +64,16 @@ using System.Text;
 
     void Submit()
     {
-        string path = Path.Combine(jsonToProjectService.WebHostEnvironment.WebRootPath, "data", "projects.json");
-
         Project newProj = new Project(username, projName, projDesc, helpNeeded);
 
         MongoDBAccess mongoDBAccess = new MongoDBAccess("Projects");
 
         mongoDBAccess.AddItem<Project>("Projects", newProj);
-        
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private JsonToProjectService jsonToProjectService { get; set; }
     }
 }
 #pragma warning restore 1591

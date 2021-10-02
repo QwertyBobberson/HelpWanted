@@ -13,16 +13,11 @@ namespace HelpWanted.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> logger;
-        public JsonToProjectService jsonToProjectService;
         public IEnumerable<Project> Projects {get; private set;}
 
-        public IndexModel(
-            ILogger<IndexModel> _logger,
-            JsonToProjectService _jsonToProjectService
-            )
+        public IndexModel(ILogger<IndexModel> _logger)
         {
             logger = _logger;
-            jsonToProjectService = _jsonToProjectService;
         }
 
         public void OnGet()

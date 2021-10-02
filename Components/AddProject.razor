@@ -3,7 +3,6 @@
 @using HelpWanted.Services;
 @using System.IO;
 @using System.Text;
-@inject JsonToProjectService jsonToProjectService;
 
 <ul align="center">
     <li>
@@ -31,13 +30,10 @@
 
     void Submit()
     {
-        string path = Path.Combine(jsonToProjectService.WebHostEnvironment.WebRootPath, "data", "projects.json");
-
         Project newProj = new Project(username, projName, projDesc, helpNeeded);
 
         MongoDBAccess mongoDBAccess = new MongoDBAccess("Projects");
 
         mongoDBAccess.AddItem<Project>("Projects", newProj);
-        
     }
 }

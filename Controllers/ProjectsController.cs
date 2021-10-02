@@ -11,13 +11,6 @@ namespace HelpWanted.Controllers
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-        public JsonToProjectService jsonToProjectsService {get;}
-
-        public ProjectsController(JsonToProjectService _jsonToProjectService)
-        {
-            jsonToProjectsService = _jsonToProjectService;
-        }
-
         [HttpGet]
         public IEnumerable<Project> Get()
         {
