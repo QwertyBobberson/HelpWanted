@@ -21,7 +21,8 @@ namespace HelpWanted.Controllers
         [HttpGet]
         public IEnumerable<Project> Get()
         {
-            return jsonToProjectsService.GetProjects();
+            MongoDBAccess mongoDBAccess = new MongoDBAccess("Projects");
+            return mongoDBAccess.GetItems<Project>("Projects");
         }
     }
 }

@@ -11,7 +11,7 @@ namespace HelpWanted.Services
     public class JsonToProjectService
     {
         public IWebHostEnvironment WebHostEnvironment { get;}
-
+        
         public JsonToProjectService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;

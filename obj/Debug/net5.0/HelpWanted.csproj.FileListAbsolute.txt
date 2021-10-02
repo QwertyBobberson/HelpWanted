@@ -43,3 +43,15 @@ C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\RazorDeclaration\C
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\HelpWanted.RazorComponent.output.cache
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\RazorDeclaration\HelpWanted.dll
 C:\Users\Cebrh\Documents\Projects\HelpWanted\obj\Debug\net5.0\Razor\Components\AddProject.razor.g.cs
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\DnsClient.dll
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\MongoDB.Bson.dll
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\MongoDB.Driver.dll
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\MongoDB.Driver.Core.dll
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\MongoDB.Libmongocrypt.dll
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\SharpCompress.dll
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\runtimes\win\native\libzstd.dll
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\runtimes\win\native\snappy32.dll
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\runtimes\win\native\snappy64.dll
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Cebrh\Documents\Projects\HelpWanted\bin\Debug\net5.0\runtimes\win\native\mongocrypt.dll

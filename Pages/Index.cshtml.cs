@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using HelpWanted.Services;
 using HelpWanted.Models;
-
+using MongoDB.Driver;
 namespace HelpWanted.Pages
 {
     public class IndexModel : PageModel
@@ -27,7 +27,8 @@ namespace HelpWanted.Pages
 
         public void OnGet()
         {
-            Projects = jsonToProjectService.GetProjects();
+            MongoDBAccess db = new MongoDBAccess("Projects");
+            Projects = db.GetItems<Project>("Projects");
         }
     }
 }

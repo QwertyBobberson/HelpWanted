@@ -55,7 +55,7 @@ using System.Text;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 15 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 26 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
       
     string username;
     string projName;
@@ -67,23 +67,11 @@ using System.Text;
         string path = Path.Combine(jsonToProjectService.WebHostEnvironment.WebRootPath, "data", "projects.json");
 
         Project newProj = new Project(username, projName, projDesc, helpNeeded);
-        Console.WriteLine(newProj.ToString());
 
-        IEnumerable<Project> projects = jsonToProjectService.GetProjects();
+        MongoDBAccess mongoDBAccess = new MongoDBAccess("Projects");
 
-        using(StreamWriter fs = new StreamWriter(path))
-        {
-            fs.Write("[\n");
-
-            foreach(Project proj in projects)
-            {
-                fs.Write(proj.ToString() + ",\n");
-            }
-
-            fs.Write(newProj.ToString() + "\n");
-
-            fs.Write("]");
-        }
+        mongoDBAccess.AddItem<Project>("Projects", newProj);
+        
     }
 
 #line default

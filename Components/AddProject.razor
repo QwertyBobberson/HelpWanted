@@ -5,10 +5,21 @@
 @using System.Text;
 @inject JsonToProjectService jsonToProjectService;
 
-<input placeholder="Username" @bind="username">
-<input placeholder="Project Name" @bind="projName">
-<input placeholder="Project Description" @bind="projDesc">
-<input placeholder="Help Needed" @bind="helpNeeded">
+<ul align="center">
+    <li>
+        <input placeholder="Username" @bind="username">
+    </li>
+    <li>
+        <input placeholder="Project Name" @bind="projName">
+    </li>
+    <li>
+        <input placeholder="Project Description" @bind="projDesc">
+    </li>
+    <li>
+        <input placeholder="Help Needed" @bind="helpNeeded">
+    </li>
+</ul>
+
 
 <button @onclick="Submit">Submit</button>
 
@@ -23,22 +34,10 @@
         string path = Path.Combine(jsonToProjectService.WebHostEnvironment.WebRootPath, "data", "projects.json");
 
         Project newProj = new Project(username, projName, projDesc, helpNeeded);
-        Console.WriteLine(newProj.ToString());
 
-        IEnumerable<Project> projects = jsonToProjectService.GetProjects();
+        MongoDBAccess mongoDBAccess = new MongoDBAccess("Projects");
 
-        using(StreamWriter fs = new StreamWriter(path))
-        {
-            fs.Write("[\n");
-
-            foreach(Project proj in projects)
-            {
-                fs.Write(proj.ToString() + ",\n");
-            }
-
-            fs.Write(newProj.ToString() + "\n");
-
-            fs.Write("]");
-        }
+        mongoDBAccess.AddItem<Project>("Projects", newProj);
+        
     }
 }
