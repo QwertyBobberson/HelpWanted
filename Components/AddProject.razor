@@ -16,7 +16,45 @@
         <input placeholder="Project Description" @bind="projDesc">
     </div>
     <div>
-        <input placeholder="Help Needed" @bind="helpNeeded">
+        <select id="helpType" name="helpType" @bind="helpType">
+            @{
+                Enums.HelpTypes[] helpTypes = Enum.GetValues<Enums.HelpTypes>(); 
+                for(int i = 0; i < helpTypes.Count(); i++)
+                {
+                    <option value="@helpTypes[i]">
+                        @helpTypes[i]
+                    </option>
+                }
+            }
+        </select>
+    </div>
+    @if(helpType != Enums.HelpTypes.None)
+    {
+        <div>
+            <input placeholder="Help Needed" @bind="helpWanted">
+        </div>
+        <div>
+            <input placeholder="Skills Needed" @bind="helpSkills">
+        </div>
+    }
+    <div>
+        <input placeholder = "Team Members" @bind="teamMembers">
+    </div>
+    <div>
+        <select id="progress" name="progress" @bind="progress">
+            @{
+                Enums.Progress[] progresses = Enum.GetValues<Enums.Progress>(); 
+                for(int i = 0; i < progresses.Count(); i++)
+                {
+                    <option value="@progresses[i]">
+                        @progresses[i]
+                    </option>
+                }
+            }
+        </select>
+    </div>
+    <div>
+        <input placeholder="Contact Info" @bind="contactInfo">
     </div>
     <div>
         <button @onclick="Submit" align="center">
@@ -30,16 +68,32 @@
     string username;
     string projName;
     string projDesc;
-    string helpNeeded;
+    string helpWanted;
+    string teamMembers;
+    Enums.Progress progress;
+    Enums.HelpTypes helpType;
+    string contactInfo;
+    string helpSkills;
 
     void Submit()
     {
-        if(username == null || projName == null || projDesc == null || helpNeeded == null)
+        if(username == null || projName == null )
         {
             return;
         }
 
-        Project newProj = new Project(username, projName, projDesc, helpNeeded);
+        string[] teamArray = new string[0];
+        string[] skillsArray = new string[0];
+
+        if(teamMembers != null)
+        {
+            teamArray = teamMembers.Split(',');
+        }
+        if(helpSkills != null)
+        {
+            skillsArray = helpSkills.Split(',');
+        }
+        Project newProj = new Project(username, projName, projDesc, helpWanted, skillsArray, helpType, teamArray, progress, contactInfo);
 
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 
@@ -48,6 +102,9 @@
         username = null;
         projName = null;
         projDesc = null;
-        helpNeeded = null;
+        helpWanted = null;
+        helpType = 0;
+        progress = 0;
+        contactInfo = null;
     }
 }

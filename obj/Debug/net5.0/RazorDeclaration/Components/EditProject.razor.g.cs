@@ -12,70 +12,70 @@ namespace HelpWanted.Components
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 1 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 2 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using HelpWanted.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 3 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using HelpWanted.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 4 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using System.IO;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 5 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using System.Text;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 6 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using System;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 7 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using MongoDB;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 8 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using MongoDB.Driver;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 9 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using MongoDB.Bson.Serialization.Attributes;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 10 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
 using MongoDB.Bson;
 
 #line default
@@ -89,12 +89,19 @@ using MongoDB.Bson;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\EditProject.razor"
+#line 78 "/home/qwob/Documents/Projects/HelpWanted/Components/EditProject.razor"
       
     string username;
     string projName;
     string projDesc;
-    string helpNeeded;
+    string helpWanted;
+    string teamMembers;
+    string[] teamArray;
+    Enums.Progress progress;
+    Enums.HelpTypes helpType;
+    string contactInfo;
+    string helpSkills;
+    string[] skillsArray;
 
     Guid currentProject;
 
@@ -108,49 +115,84 @@ using MongoDB.Bson;
         {
             if(username == projects[i].Name && projName == projects[i].ProjectName)
             {
-                projDesc = projects[i].ProjectDescription;
-                helpNeeded = projects[i].HelpNeeded;
-                currentProject = projects[i].id;
+                SetFields(projects[i]);
             }
         }
     }
 
     void Submit()
     {        
-        if(username == null || projName == null || projDesc == null || helpNeeded == null)
+        if(username == null || projName == null)
         {
             return;
         }
 
-        Project editedProj = new Project(username, projName, projDesc, helpNeeded);
+        if(teamMembers != null)
+        {
+            teamArray = teamMembers.Split(", ");
+        }
+
+        if(helpSkills != null)
+        {
+            skillsArray = helpSkills.Split(", ");
+        }
+
+
+        Project editedProj = new Project(username, projName, projDesc, helpWanted, skillsArray, helpType, teamArray, progress, contactInfo);
+        
         editedProj.id = currentProject;
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
-
         mongoDBAccess.EditItem<Project>(MongoDBAccess.collectionName, currentProject, editedProj);
         
-        username = null;
-        projName = null;
-        projDesc = null;
-        helpNeeded = null;
+        ClearFields();
     }
 
     void Delete()
     {
-        if(username == null || projName == null || projDesc == null || helpNeeded == null)
-        {
-            return;
-        }
-
-        Project editedProj = new Project(username, projName, projDesc, helpNeeded);
-        editedProj.id = currentProject;
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 
         mongoDBAccess.RemoveItem<Project>(MongoDBAccess.collectionName, currentProject);
 
+        ClearFields();
+    }
+
+    void SetFields(Project project)
+    {
+        projDesc = project.ProjectDescription;
+        helpWanted = project.HelpWanted;
+        if(project.TeamMembers != null)
+        {
+            teamMembers = "";
+            for(int j = 0; j < project.TeamMembers.Count(); j++)
+            {
+                teamMembers += project.TeamMembers[j] + (j != project.TeamMembers.Count() - 1 ? ", " : "");
+            }
+        }
+        if(project.HelpSkills != null)
+        {
+            helpSkills = "";
+            for(int j = 0; j < project.HelpSkills.Count(); j++)
+            {
+                helpSkills += project.HelpSkills[j] + (j != project.HelpSkills.Count() - 1 ? ", " : "");
+            }
+        }
+        progress = project.Progress;
+        contactInfo = project.ContactInformation;
+        currentProject = project.id;
+        helpType = project.HelpType;
+    }
+
+    void ClearFields()
+    {
         username = null;
         projName = null;
         projDesc = null;
-        helpNeeded = null;
+        helpWanted = null;
+        teamMembers = null;
+        progress = 0;
+        helpType = 0;
+        contactInfo = null;
+        helpSkills = null;
     }
 
 #line default

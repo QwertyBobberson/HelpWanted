@@ -25,7 +25,43 @@
         <input placeholder="Project Description" @bind="projDesc">
     </div>
     <div>
-        <input placeholder="Help Needed" @bind="helpNeeded">
+        <select id="helpType" name="helpType" @bind="helpType">
+            @{
+                Enums.HelpTypes[] helpTypes = Enum.GetValues<Enums.HelpTypes>(); 
+                for(int i = 0; i < helpTypes.Count(); i++)
+                {
+                    <option value="@helpTypes[i]">
+                        @helpTypes[i]
+                    </option>
+                }
+            }
+        </select>
+    </div>
+    @if(helpType != Enums.HelpTypes.None)
+    {
+        <div>
+            <input placeholder="Help Needed" @bind="helpWanted">
+        </div>
+        <div>
+            <input placeholder="Skells Needed" @bind="helpSkills">
+        </div>
+    }
+    <div>
+        <input placeholder = "Team Members" @bind="teamMembers">
+    </div>
+        <select id="progress" name="progress" @bind="progress">
+            @{
+                Enums.Progress[] progresses = Enum.GetValues<Enums.Progress>(); 
+                for(int i = 0; i < progresses.Count(); i++)
+                {
+                    <option value="@progresses[i]">
+                        @progresses[i]
+                    </option>
+                }
+            }
+        </select>
+    <div>
+        <input placeholder="Contact Info" @bind="contactInfo">
     </div>
     <div>
         <button @onclick="Submit" align="center">
@@ -43,7 +79,14 @@
     string username;
     string projName;
     string projDesc;
-    string helpNeeded;
+    string helpWanted;
+    string teamMembers;
+    string[] teamArray;
+    Enums.Progress progress;
+    Enums.HelpTypes helpType;
+    string contactInfo;
+    string helpSkills;
+    string[] skillsArray;
 
     Guid currentProject;
 
@@ -57,48 +100,83 @@
         {
             if(username == projects[i].Name && projName == projects[i].ProjectName)
             {
-                projDesc = projects[i].ProjectDescription;
-                helpNeeded = projects[i].HelpNeeded;
-                currentProject = projects[i].id;
+                SetFields(projects[i]);
             }
         }
     }
 
     void Submit()
     {        
-        if(username == null || projName == null || projDesc == null || helpNeeded == null)
+        if(username == null || projName == null)
         {
             return;
         }
 
-        Project editedProj = new Project(username, projName, projDesc, helpNeeded);
+        if(teamMembers != null)
+        {
+            teamArray = teamMembers.Split(", ");
+        }
+
+        if(helpSkills != null)
+        {
+            skillsArray = helpSkills.Split(", ");
+        }
+
+
+        Project editedProj = new Project(username, projName, projDesc, helpWanted, skillsArray, helpType, teamArray, progress, contactInfo);
+        
         editedProj.id = currentProject;
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
-
         mongoDBAccess.EditItem<Project>(MongoDBAccess.collectionName, currentProject, editedProj);
         
-        username = null;
-        projName = null;
-        projDesc = null;
-        helpNeeded = null;
+        ClearFields();
     }
 
     void Delete()
     {
-        if(username == null || projName == null || projDesc == null || helpNeeded == null)
-        {
-            return;
-        }
-
-        Project editedProj = new Project(username, projName, projDesc, helpNeeded);
-        editedProj.id = currentProject;
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 
         mongoDBAccess.RemoveItem<Project>(MongoDBAccess.collectionName, currentProject);
 
+        ClearFields();
+    }
+
+    void SetFields(Project project)
+    {
+        projDesc = project.ProjectDescription;
+        helpWanted = project.HelpWanted;
+        if(project.TeamMembers != null)
+        {
+            teamMembers = "";
+            for(int j = 0; j < project.TeamMembers.Count(); j++)
+            {
+                teamMembers += project.TeamMembers[j] + (j != project.TeamMembers.Count() - 1 ? ", " : "");
+            }
+        }
+        if(project.HelpSkills != null)
+        {
+            helpSkills = "";
+            for(int j = 0; j < project.HelpSkills.Count(); j++)
+            {
+                helpSkills += project.HelpSkills[j] + (j != project.HelpSkills.Count() - 1 ? ", " : "");
+            }
+        }
+        progress = project.Progress;
+        contactInfo = project.ContactInformation;
+        currentProject = project.id;
+        helpType = project.HelpType;
+    }
+
+    void ClearFields()
+    {
         username = null;
         projName = null;
         projDesc = null;
-        helpNeeded = null;
+        helpWanted = null;
+        teamMembers = null;
+        progress = 0;
+        helpType = 0;
+        contactInfo = null;
+        helpSkills = null;
     }
 }

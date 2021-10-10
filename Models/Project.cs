@@ -13,14 +13,33 @@ namespace HelpWanted.Models
     {
         [BsonId]
         public Guid id {get; set;}
+        
         [JsonPropertyName("user")]
         public string Name {get; set;}
+        
         [JsonPropertyName("projName")]
         public string ProjectName {get; set;}
+        
         [JsonPropertyName("projDesc")]
         public string ProjectDescription {get; set;}
+        
+        [JsonPropertyName("helpType")]
+        public Enums.HelpTypes HelpType {get; set;}
+        
         [JsonPropertyName("helpWanted")]
-        public string HelpNeeded {get; set;}
+        public string HelpWanted {get; set;}
+
+        [JsonPropertyName("helpSkills")]
+        public string[] HelpSkills {get; set;}
+
+        [JsonPropertyName("teamMembers")] 
+        public string[] TeamMembers {get; set;}
+
+        [JsonPropertyName("percentFinished")]
+        public Enums.Progress Progress {get; set;}
+
+        [JsonPropertyName("contactInfo")]
+        public string ContactInformation {get; set;}
 
         public Project()
         {
@@ -28,12 +47,17 @@ namespace HelpWanted.Models
         }
 
 
-        public Project(string name, string projectName, string projectDescription, string helpNeeded)
+        public Project(string name, string projectName, string projectDescription, string helpWanted, string[] helpSkills, Enums.HelpTypes helpType, string[] teamMembers, Enums.Progress progress, string contactInfo)
         {
             Name = name;
             ProjectName = projectName;
             ProjectDescription = projectDescription;
-            HelpNeeded = helpNeeded;
+            HelpWanted = helpWanted;
+            HelpType = helpType;
+            TeamMembers = teamMembers;
+            Progress = progress;
+            ContactInformation = contactInfo;
+            HelpSkills = helpSkills;
         }
 
         public override string ToString()

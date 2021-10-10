@@ -13,17 +13,35 @@
     {
         <div class = "card">
             <div class = "card-head" align="center">
-                <h4>@project.ProjectName</h4>
+                <h4>@project.ProjectName - @project.Name</h4>
             </div>
             <div class = "card-footer" align="center">
                 <p>@project.ProjectDescription</p>
             </div>
-            <div class = "card-footer" align="center">
-                <p>@project.HelpNeeded</p>
-            </div>
-            <div class = "card-body" align="center">
-                <h9>@project.Name</h9>
-            </div>
+            @if(project.HelpSkills != null)
+            {
+                <div class = "card-footer" align="center">
+                    @for(int i = 0; i < project.HelpSkills.Count(); i++)
+                    {
+                        <p class="badge badge-primary">
+                            @project.HelpSkills[i]
+                        </p>
+                    }
+                    <div align="center">
+                        <Button>
+                            Show More
+                        </Button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class = "card-footer" align="center">
+                    <Button>
+                        Show More
+                    </Button>
+                </div>
+            }
         </div>
     }
 </div>

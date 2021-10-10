@@ -13,42 +13,42 @@ namespace HelpWanted.Components
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 1 "/home/qwob/Documents/Projects/HelpWanted/Components/AddProject.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 2 "/home/qwob/Documents/Projects/HelpWanted/Components/AddProject.razor"
 using HelpWanted.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 3 "/home/qwob/Documents/Projects/HelpWanted/Components/AddProject.razor"
 using HelpWanted.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 4 "/home/qwob/Documents/Projects/HelpWanted/Components/AddProject.razor"
 using System.IO;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 5 "/home/qwob/Documents/Projects/HelpWanted/Components/AddProject.razor"
 using System.Text;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 6 "/home/qwob/Documents/Projects/HelpWanted/Components/AddProject.razor"
 using MongoDB.Bson;
 
 #line default
@@ -62,21 +62,37 @@ using MongoDB.Bson;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 29 "C:\Users\Cebrh\Documents\Projects\HelpWanted\Components\AddProject.razor"
+#line 67 "/home/qwob/Documents/Projects/HelpWanted/Components/AddProject.razor"
       
     string username;
     string projName;
     string projDesc;
-    string helpNeeded;
+    string helpWanted;
+    string teamMembers;
+    Enums.Progress progress;
+    Enums.HelpTypes helpType;
+    string contactInfo;
+    string helpSkills;
 
     void Submit()
     {
-        if(username == null || projName == null || projDesc == null || helpNeeded == null)
+        if(username == null || projName == null )
         {
             return;
         }
 
-        Project newProj = new Project(username, projName, projDesc, helpNeeded);
+        string[] teamArray = new string[0];
+        string[] skillsArray = new string[0];
+
+        if(teamMembers != null)
+        {
+            teamArray = teamMembers.Split(',');
+        }
+        if(helpSkills != null)
+        {
+            skillsArray = helpSkills.Split(',');
+        }
+        Project newProj = new Project(username, projName, projDesc, helpWanted, skillsArray, helpType, teamArray, progress, contactInfo);
 
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 
@@ -85,7 +101,10 @@ using MongoDB.Bson;
         username = null;
         projName = null;
         projDesc = null;
-        helpNeeded = null;
+        helpWanted = null;
+        helpType = 0;
+        progress = 0;
+        contactInfo = null;
     }
 
 #line default

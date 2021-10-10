@@ -1,19 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "p2iVM+8TOUoUM0oTiuBKqmwc0bX4fiZunLTexy54oNDVy2t1I1Lutgrh6sd1XsErTtJzfHpNZMthHYDPA1xiSw==",
+  "dgSpecHash": "xontZ/Wc9wuYtK4pO6FVBM3ukn4YiZf18EV+iMn84YDBf1OnHOUSOzFuKTMbfpx1rG0Fk3JCx4508g7PCY5Vqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Cebrh\\Documents\\Projects\\HelpWanted\\HelpWanted.csproj",
+  "projectFilePath": "/home/qwob/Documents/Projects/HelpWanted/HelpWanted.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Cebrh\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
-    "C:\\Users\\Cebrh\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
-    "C:\\Users\\Cebrh\\.nuget\\packages\\mongodb.bson\\2.13.1\\mongodb.bson.2.13.1.nupkg.sha512",
-    "C:\\Users\\Cebrh\\.nuget\\packages\\mongodb.driver\\2.13.1\\mongodb.driver.2.13.1.nupkg.sha512",
-    "C:\\Users\\Cebrh\\.nuget\\packages\\mongodb.driver.core\\2.13.1\\mongodb.driver.core.2.13.1.nupkg.sha512",
-    "C:\\Users\\Cebrh\\.nuget\\packages\\mongodb.libmongocrypt\\1.2.2\\mongodb.libmongocrypt.1.2.2.nupkg.sha512",
-    "C:\\Users\\Cebrh\\.nuget\\packages\\sharpcompress\\0.23.0\\sharpcompress.0.23.0.nupkg.sha512",
-    "C:\\Users\\Cebrh\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\Cebrh\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "C:\\Users\\Cebrh\\.nuget\\packages\\system.text.encoding.codepages\\4.5.1\\system.text.encoding.codepages.4.5.1.nupkg.sha512"
+    "/home/qwob/.nuget/packages/dnsclient/1.4.0/dnsclient.1.4.0.nupkg.sha512",
+    "/home/qwob/.nuget/packages/microsoft.netcore.platforms/2.1.2/microsoft.netcore.platforms.2.1.2.nupkg.sha512",
+    "/home/qwob/.nuget/packages/mongodb.bson/2.13.1/mongodb.bson.2.13.1.nupkg.sha512",
+    "/home/qwob/.nuget/packages/mongodb.driver/2.13.1/mongodb.driver.2.13.1.nupkg.sha512",
+    "/home/qwob/.nuget/packages/mongodb.driver.core/2.13.1/mongodb.driver.core.2.13.1.nupkg.sha512",
+    "/home/qwob/.nuget/packages/mongodb.libmongocrypt/1.2.2/mongodb.libmongocrypt.1.2.2.nupkg.sha512",
+    "/home/qwob/.nuget/packages/sharpcompress/0.23.0/sharpcompress.0.23.0.nupkg.sha512",
+    "/home/qwob/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
+    "/home/qwob/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "/home/qwob/.nuget/packages/system.text.encoding.codepages/4.5.1/system.text.encoding.codepages.4.5.1.nupkg.sha512",
+    "/home/qwob/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
