@@ -1,4 +1,5 @@
 ﻿@page
+@using HelpWanted.Components;
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -8,41 +9,6 @@
     There are currently @Model.Projects.Count() projects requesting help!
 </h1>
 
-<div class = "card-columns">
-    @foreach (var project in Model.Projects)
-    {
-        <div class = "card">
-            <div class = "card-head" align="center">
-                <h4>@project.ProjectName - @project.Name</h4>
-            </div>
-            <div class = "card-footer" align="center">
-                <p>@project.ProjectDescription</p>
-            </div>
-            @if(project.HelpSkills != null)
-            {
-                <div class = "card-footer" align="center">
-                    @for(int i = 0; i < project.HelpSkills.Count(); i++)
-                    {
-                        <p class="badge badge-primary">
-                            @project.HelpSkills[i]
-                        </p>
-                    }
-                    <div align="center">
-                        <Button>
-                            Show More
-                        </Button>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class = "card-footer" align="center">
-                    <Button>
-                        Show More
-                    </Button>
-                </div>
-            }
-        </div>
-    }
-</div>
 
+@(await Html.RenderComponentAsync<Components.Index>(RenderMode.ServerPrerendered))
+<script src="_framework/blazor.server.js"></script>

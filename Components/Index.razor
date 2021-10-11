@@ -1,0 +1,64 @@
+@using Microsoft.AspNetCore.Components.Web;
+@using HelpWanted.Models;
+@using HelpWanted.Services;
+@using System.IO;
+@using System.Text;
+@using System;
+@using MongoDB;
+@using MongoDB.Driver;
+@using MongoDB.Bson.Serialization.Attributes;
+@using MongoDB.Bson;
+@using System;
+
+@{
+    MongoDBAccess db = new MongoDBAccess(MongoDBAccess.databaseName);
+    Project[] Projects = db.GetItems<Project>(MongoDBAccess.databaseName).AsEnumerable<Project>().ToArray<Project>();
+}
+<div class = "card-columns" runat="client">
+    @foreach (var project in Projects)
+    {
+        <div class = "card">
+            <div class = "card-head" align="center">
+                <h4>@project.ProjectName - @project.Name</h4>
+            </div>
+            <div class = "card-footer" align="center">
+                <p>@project.ProjectDescription</p>
+            </div>
+            @if(project.HelpSkills != null)
+            {
+                <div class = "card-footer" align="center">
+                    @for(int i = 0; i < project.HelpSkills.Count(); i++)
+                    {
+                        <p class="badge badge-primary">
+                            @project.HelpSkills[i]
+                        </p>
+                    }
+                    <div align="center">
+                        <a href="/ViewProject">
+                            <button @onclick="() => ViewProject(project)">
+                                Show More
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class = "card-footer" align="center">
+                    <a href="/ViewProject">
+                        <button @onclick="() => ViewProject(project)">
+                            Show More
+                        </button>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code{
+    void ViewProject(Project project)
+    {
+        Project.ProjectToView = project;
+    }
+}

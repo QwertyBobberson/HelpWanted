@@ -1,0 +1,99 @@
+@page "/ViewProject"
+@using HelpWanted.Models;
+@using HelpWanted.Services;
+@using Enums;
+
+
+@model ViewProjectModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@{Project project = Project.ProjectToView;}
+
+<div align="center">
+    <h1>
+        @project.ProjectName
+    </h1>
+
+    <h3>
+        Information:
+    </h3>
+    
+    <h5>
+        Team:
+    </h5>
+    @if(project.TeamMembers != null)
+    {
+        @for(int i = 0; i < project.TeamMembers.Count(); i++)
+        {
+            <p class="badge badge-primary">
+                @project.TeamMembers[i]
+            </p>
+        }
+    }
+    <p class="badge badge-primary">
+        @project.Name;
+    </p>
+
+    <h5>
+        Description:
+    </h5>
+    <p>
+        @project.ProjectDescription
+    </p>
+    
+    <h5>
+        Progress:
+    </h5>
+    <p>
+        @project.Progress.ToString()
+    </p>
+    
+    <h3>
+        Help Information:
+    </h5>
+    @if(project.HelpType == HelpTypes.None)
+    {
+        <p>
+            This project is not requesting help
+        </p>    
+    }
+    else
+    {
+        <h5>
+            Help Type:
+        </h5>
+        <p>
+            @project.HelpType.ToString()
+        </p>
+
+        <h5>
+            Skills Needed:
+        </h5>
+        @if(project.HelpSkills != null)
+        {
+            for(int i = 0; i < project.HelpSkills.Count(); i++)
+            {
+                <p class = "badge badge-primary">
+                    @project.HelpSkills[i].ToString()
+                </p>
+            }
+        }
+
+        <h5>
+            Help Description
+        </h5>
+        <p>
+            @project.HelpWanted;
+        </p>
+
+        <h5>
+            Contact Info:
+        </h5>
+        <p>
+            @project.ContactInformation
+        </p>
+    }
+
+</div>

@@ -12,35 +12,35 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 605305239,
+        "HashCode": -372936831,
         "Kind": "Components.Component",
-        "Name": "HelpWanted.Components.AddProject",
+        "Name": "HelpWanted.Components.Index",
         "AssemblyName": "HelpWanted",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "AddProject"
+            "TagName": "Index"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HelpWanted.Components.AddProject"
+          "Common.TypeName": "HelpWanted.Components.Index"
         }
       },
       {
-        "HashCode": 367278091,
+        "HashCode": 281218295,
         "Kind": "Components.Component",
-        "Name": "HelpWanted.Components.AddProject",
+        "Name": "HelpWanted.Components.Index",
         "AssemblyName": "HelpWanted",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "HelpWanted.Components.AddProject"
+            "TagName": "HelpWanted.Components.Index"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HelpWanted.Components.AddProject",
+          "Common.TypeName": "HelpWanted.Components.Index",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -74,6 +74,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "HelpWanted.Components.EditProject",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 605305239,
+        "Kind": "Components.Component",
+        "Name": "HelpWanted.Components.AddProject",
+        "AssemblyName": "HelpWanted",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "AddProject"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HelpWanted.Components.AddProject"
+        }
+      },
+      {
+        "HashCode": 367278091,
+        "Kind": "Components.Component",
+        "Name": "HelpWanted.Components.AddProject",
+        "AssemblyName": "HelpWanted",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "HelpWanted.Components.AddProject"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HelpWanted.Components.AddProject",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -15733,6 +15766,16 @@
       "FilePath": "/home/qwob/Documents/Projects/HelpWanted/Pages/_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/qwob/Documents/Projects/HelpWanted/Pages/ViewProject.cshtml",
+      "TargetPath": "Pages\\ViewProject.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/qwob/Documents/Projects/HelpWanted/Components/Index.razor",
+      "TargetPath": "Components\\Index.razor",
+      "FileKind": "component"
     }
   ],
   "SerializationFormat": "0.2"

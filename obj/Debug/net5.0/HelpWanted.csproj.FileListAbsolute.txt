@@ -178,3 +178,6 @@ C:/Users/Cebrh/Documents/Projects/HelpWanted/obj/Debug/net5.0/Razor/Pages/EditPr
 /home/qwob/Documents/Projects/HelpWanted/obj/Debug/net5.0/ref/HelpWanted.dll
 /home/qwob/Documents/Projects/HelpWanted/obj/Debug/net5.0/HelpWanted.pdb
 /home/qwob/Documents/Projects/HelpWanted/obj/Debug/net5.0/HelpWanted.genruntimeconfig.cache
+/home/qwob/Documents/Projects/HelpWanted/obj/Debug/net5.0/RazorDeclaration/Components/Index.razor.g.cs
+/home/qwob/Documents/Projects/HelpWanted/obj/Debug/net5.0/Razor/Components/Index.razor.g.cs
+/home/qwob/Documents/Projects/HelpWanted/obj/Debug/net5.0/Razor/Pages/ViewProject.cshtml.g.cs

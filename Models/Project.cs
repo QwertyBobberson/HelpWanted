@@ -11,6 +11,8 @@ namespace HelpWanted.Models
 {
     public class Project
     {
+        public static Project ProjectToView;
+
         [BsonId]
         public Guid id {get; set;}
         
@@ -49,15 +51,15 @@ namespace HelpWanted.Models
 
         public Project(string name, string projectName, string projectDescription, string helpWanted, string[] helpSkills, Enums.HelpTypes helpType, string[] teamMembers, Enums.Progress progress, string contactInfo)
         {
-            Name = name;
-            ProjectName = projectName;
-            ProjectDescription = projectDescription;
-            HelpWanted = helpWanted;
+            Name = name != null ? name : "";
+            ProjectName = projectName!= null ? projectName : "";
+            ProjectDescription = projectDescription!= null ? projectDescription : "";
+            HelpWanted = helpWanted!= null ? helpWanted : "";
             HelpType = helpType;
-            TeamMembers = teamMembers;
+            TeamMembers = teamMembers!= null ? teamMembers : new string[0];
             Progress = progress;
-            ContactInformation = contactInfo;
-            HelpSkills = helpSkills;
+            ContactInformation = contactInfo!= null ? contactInfo : "";
+            HelpSkills = helpSkills!= null ? HelpSkills : new string[0];
         }
 
         public override string ToString()
