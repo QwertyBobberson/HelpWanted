@@ -12,39 +12,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": -372936831,
-        "Kind": "Components.Component",
-        "Name": "HelpWanted.Components.Index",
-        "AssemblyName": "HelpWanted",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Index"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HelpWanted.Components.Index"
-        }
-      },
-      {
-        "HashCode": 281218295,
-        "Kind": "Components.Component",
-        "Name": "HelpWanted.Components.Index",
-        "AssemblyName": "HelpWanted",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "HelpWanted.Components.Index"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "HelpWanted.Components.Index",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -357465382,
         "Kind": "Components.Component",
         "Name": "HelpWanted.Components.EditProject",
@@ -74,6 +41,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "HelpWanted.Components.EditProject",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -372936831,
+        "Kind": "Components.Component",
+        "Name": "HelpWanted.Components.Index",
+        "AssemblyName": "HelpWanted",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HelpWanted.Components.Index"
+        }
+      },
+      {
+        "HashCode": 281218295,
+        "Kind": "Components.Component",
+        "Name": "HelpWanted.Components.Index",
+        "AssemblyName": "HelpWanted",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "HelpWanted.Components.Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "HelpWanted.Components.Index",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

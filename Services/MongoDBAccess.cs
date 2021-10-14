@@ -15,7 +15,8 @@ namespace HelpWanted.Services
 
         public MongoDBAccess(string database)
         {
-            MongoClient client = new MongoClient();
+            Console.WriteLine("Hello");
+            MongoClient client = new MongoClient("mongodb://squirrel:password@mongodb/?connectTimeoutMS=5000");
             db = client.GetDatabase(database);
         }
 

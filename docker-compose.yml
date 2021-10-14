@@ -1,0 +1,25 @@
+services:
+  helpwanted:
+    build: .
+    container_name: helpwanted
+    restart: unless-stopped
+    depends_on: 
+      - mongodb
+    environment:
+      - "ASPNETCORE_ENVIRONMENT=Development"
+    ports:
+      - 127.0.0.1:80:80
+  monogodb:
+    image: mongo:4.4.6-bionic
+    container_name: mongodb
+    command: "mongod --bind_ip 0.0.0.0"
+    restart: unless-stopped
+    environment:
+      - "MONGO_INITDB_ROOT_USERNAME=squirrel"
+      - "MONGO_INITDB_ROOT_PASSWORD=password"
+    volumes:
+      - type: volume
+        source: mongodb
+        target: /data/db/
+volumes:
+  mongodb:
