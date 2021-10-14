@@ -22,9 +22,7 @@ namespace HelpWanted.Pages
 
         public void OnGet()
         {
-            Console.WriteLine("Hello01");
             MongoDBAccess db = new MongoDBAccess(MongoDBAccess.databaseName);
-            Console.WriteLine("Hello02");
             Projects = db.GetItems<Project>(MongoDBAccess.databaseName);
         }
     }

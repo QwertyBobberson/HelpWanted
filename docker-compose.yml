@@ -7,6 +7,7 @@ services:
       - mongodb
     environment:
       - "ASPNETCORE_ENVIRONMENT=Development"
+      - "MONGODB_URI=mongodb://squirrel:password@mongodb/?connectTimeoutMS=5000"
     ports:
       - 127.0.0.1:80:80
   monogodb:
@@ -23,3 +24,4 @@ services:
         target: /data/db/
 volumes:
   mongodb:
+`
