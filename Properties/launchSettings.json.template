@@ -26,6 +26,7 @@
         "CLIENT_SECRET": "INSERT SECRET",
         "CLIENT_ID": "INSERT ID",
         "OIDC_AUTHORITY": "INSERT AUTHORITY"
+        "REDIRECT_URI": "INSERT REDIRECT URI"
       }
     }
   }

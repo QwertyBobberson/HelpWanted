@@ -50,7 +50,11 @@ namespace HelpWanted
 
                 options.ResponseType="code";
 
-
+                options.Events.OnRedirectToIdentityProvider = async redirect =>
+                {
+                    redirect.ProtocolMessage.RedirectUri = Environment.GetEnvironmentVariable("REDIRECT_URI");
+                    await Task.FromResult(0);
+                };
 
                 options.SaveTokens = true;
             });
