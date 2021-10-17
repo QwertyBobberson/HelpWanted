@@ -7,9 +7,6 @@
 
 <div align="center">
     <div>
-        <input placeholder="Username" @bind="username">
-    </div>
-    <div>
         <input placeholder="Project Name" @bind="projName">
     </div>
     <div>
@@ -65,7 +62,6 @@
 
 
 @code{
-    string username;
     string projName;
     string projDesc;
     string helpWanted;
@@ -77,7 +73,7 @@
 
     void Submit()
     {
-        if(username == null || projName == null )
+        if(projName == null )
         {
             return;
         }
@@ -93,13 +89,12 @@
         {
             skillsArray = helpSkills.Split(',');
         }
-        Project newProj = new Project(username, projName, projDesc, helpWanted, skillsArray, helpType, teamArray, progress, contactInfo);
+        Project newProj = new Project(Project.UserName, projName, projDesc, helpWanted, skillsArray, helpType, teamArray, progress);
 
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 
         mongoDBAccess.AddItem<Project>(MongoDBAccess.collectionName, newProj);
 
-        username = null;
         projName = null;
         projDesc = null;
         helpWanted = null;

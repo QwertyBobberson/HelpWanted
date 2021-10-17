@@ -17,7 +17,9 @@ namespace HelpWanted.Models
         public Guid id {get; set;}
         
         [JsonPropertyName("user")]
-        public string Name {get; set;}
+        public static string UserName {get; set;}
+
+        public string Name;
         
         [JsonPropertyName("projName")]
         public string ProjectName {get; set;}
@@ -40,25 +42,21 @@ namespace HelpWanted.Models
         [JsonPropertyName("percentFinished")]
         public Enums.Progress Progress {get; set;}
 
-        [JsonPropertyName("contactInfo")]
-        public string ContactInformation {get; set;}
-
         public Project()
         {
 
         }
 
 
-        public Project(string name, string projectName, string projectDescription, string helpWanted, string[] helpSkills, Enums.HelpTypes helpType, string[] teamMembers, Enums.Progress progress, string contactInfo)
+        public Project(string _name, string projectName, string projectDescription, string helpWanted, string[] helpSkills, Enums.HelpTypes helpType, string[] teamMembers, Enums.Progress progress)
         {
-            Name = name != null ? name : "";
+            Name = _name;
             ProjectName = projectName!= null ? projectName : "";
             ProjectDescription = projectDescription!= null ? projectDescription : "";
             HelpWanted = helpWanted!= null ? helpWanted : "";
             HelpType = helpType;
             TeamMembers = teamMembers!= null ? teamMembers : new string[0];
             Progress = progress;
-            ContactInformation = contactInfo!= null ? contactInfo : "";
             HelpSkills = helpSkills!= null ? HelpSkills : new string[0];
         }
 

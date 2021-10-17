@@ -11,9 +11,6 @@
 
 <div align="center">
     <div>
-        <input placeholder="Username" @bind="username">
-    </div>
-    <div>
         <input placeholder="Project Name" @bind="projName">
     </div>
     <div>
@@ -61,9 +58,6 @@
             }
         </select>
     <div>
-        <input placeholder="Contact Info" @bind="contactInfo">
-    </div>
-    <div>
         <button @onclick="Submit" align="center">
             Edit
         </button>
@@ -76,7 +70,6 @@
 </div>
 
 @code{
-    string username;
     string projName;
     string projDesc;
     string helpWanted;
@@ -84,7 +77,6 @@
     string[] teamArray;
     Enums.Progress progress;
     Enums.HelpTypes helpType;
-    string contactInfo;
     string helpSkills;
     string[] skillsArray;
 
@@ -98,7 +90,7 @@
 
         for(int i = 0; i < projects.Count(); i++)
         {
-            if(username == projects[i].Name && projName == projects[i].ProjectName)
+            if(projects[i].Name == Project.UserName && projName == projects[i].ProjectName)
             {
                 SetFields(projects[i]);
             }
@@ -107,7 +99,7 @@
 
     void Submit()
     {        
-        if(username == null || projName == null)
+        if(projName == null)
         {
             return;
         }
@@ -123,7 +115,7 @@
         }
 
 
-        Project editedProj = new Project(username, projName, projDesc, helpWanted, skillsArray, helpType, teamArray, progress, contactInfo);
+        Project editedProj = new Project(Project.UserName, projName, projDesc, helpWanted, skillsArray, helpType, teamArray, progress);
         
         editedProj.id = currentProject;
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
@@ -162,21 +154,18 @@
             }
         }
         progress = project.Progress;
-        contactInfo = project.ContactInformation;
         currentProject = project.id;
         helpType = project.HelpType;
     }
 
     void ClearFields()
     {
-        username = null;
         projName = null;
         projDesc = null;
         helpWanted = null;
         teamMembers = null;
         progress = 0;
         helpType = 0;
-        contactInfo = null;
         helpSkills = null;
     }
 }

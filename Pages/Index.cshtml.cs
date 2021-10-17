@@ -29,6 +29,15 @@ namespace HelpWanted.Pages
         {
             MongoDBAccess db = new MongoDBAccess(MongoDBAccess.databaseName);
             Projects = db.GetItems<Project>(MongoDBAccess.databaseName);
+
+
+            foreach(var claim in User.Claims)
+            {
+                if(claim.Type == "preferred_username")
+                {
+                    Project.UserName = claim.Value;
+                }
+            }
         }
     }
 }
