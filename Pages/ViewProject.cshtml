@@ -91,11 +91,14 @@
         <h5>
             Contact Info:
         </h5>
-        <a href = @("https://profiles.csh.rit.edu/user/" + @Project.UserName)>
-            <Button>
-                Contact
-            </Button>
-        </a>
+        @if(project.Name != Project.UserName)
+        {
+            <a href = @("https://profiles.csh.rit.edu/user/" + @Project.UserName)>
+                <Button>
+                    Contact
+                </Button>
+            </a>
+        }
     }
 
 </div>
