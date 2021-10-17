@@ -1,5 +1,7 @@
 ﻿@page
 @using HelpWanted.Components;
+@using Microsoft.AspNetCore.Authentication;
+@using Microsoft.AspNetCore.Authorization;
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -9,6 +11,14 @@
     There are currently @Model.Projects.Count() projects requesting help!
 </h1>
 
+
+@foreach(var claim in User.Claims)
+{
+    @if(claim.Type == "preferred_username")
+    {
+        <p>@claim.Value</p>
+    }
+}
 
 @(await Html.RenderComponentAsync<Components.Index>(RenderMode.ServerPrerendered))
 <script src="_framework/blazor.server.js"></script>

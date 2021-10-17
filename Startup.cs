@@ -13,6 +13,10 @@ using HelpWanted.Controllers;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
 using HelpWanted.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HelpWanted
 {
@@ -31,6 +35,30 @@ namespace HelpWanted
             services.AddRazorPages();
             services.AddControllers();
             services.AddServerSideBlazor();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            }).AddCookie().AddOpenIdConnect("oidc", options =>
+            {
+                options.Authority= Environment.GetEnvironmentVariable("OIDC_AUTHORITY");
+                options.ClientId = Environment.GetEnvironmentVariable("CLIENT_ID");
+                options.ClientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET");
+
+                options.CallbackPath = new PathString("/signin-oidc");
+
+                options.ResponseType="code";
+
+
+
+                options.SaveTokens = true;
+            });
+
+            services.AddAuthorization (options =>
+            {
+                options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +79,7 @@ namespace HelpWanted
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -59,6 +87,7 @@ namespace HelpWanted
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapBlazorHub();
+                endpoints.MapDefaultControllerRoute().RequireAuthorization();
             });
         }
     }
