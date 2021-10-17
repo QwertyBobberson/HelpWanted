@@ -22,9 +22,7 @@
         <input placeholder="Project Description" @bind="projDesc">
     </div>
     <div>
-        <p>
-            Help Type:
-        </p>
+        Help Type:
         <select id="helpType" name="helpType" @bind="helpType">
             @{
                 Enums.HelpTypes[] helpTypes = Enum.GetValues<Enums.HelpTypes>(); 
@@ -49,6 +47,7 @@
     <div>
         <input placeholder = "Team Members" @bind="teamMembers">
     </div>
+        Progress:
         <select id="progress" name="progress" @bind="progress">
             @{
                 Enums.Progress[] progresses = Enum.GetValues<Enums.Progress>(); 
@@ -62,12 +61,12 @@
         </select>
     <div>
         <button @onclick="Submit" align="center">
-            Edit
+            Save Edits
         </button>
     </div>
     <div>
         <button @onclick="Delete" align="center">
-            Delete
+            Delete Project
         </button>
     </div>
 </div>
