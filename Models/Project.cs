@@ -51,13 +51,13 @@ namespace HelpWanted.Models
         public Project(string _name, string projectName, string projectDescription, string helpWanted, string[] helpSkills, Enums.HelpTypes helpType, string[] teamMembers, Enums.Progress progress)
         {
             Name = _name;
-            ProjectName = projectName!= null ? projectName : "";
-            ProjectDescription = projectDescription!= null ? projectDescription : "";
-            HelpWanted = helpWanted!= null ? helpWanted : "";
+            ProjectName = projectName != null ? projectName : "";
+            ProjectDescription = projectDescription != null ? projectDescription : "";
+            HelpWanted = helpWanted != null ? helpWanted : "";
             HelpType = helpType;
-            TeamMembers = teamMembers!= null ? teamMembers : new string[0];
+            TeamMembers = teamMembers != null ? teamMembers : new string[0];
             Progress = progress;
-            HelpSkills = helpSkills!= null ? HelpSkills : new string[0];
+            HelpSkills = helpSkills != null ? helpSkills : new string[0];
         }
 
         public override string ToString()

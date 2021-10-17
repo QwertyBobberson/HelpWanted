@@ -71,7 +71,7 @@
         <h5>
             Skills Needed:
         </h5>
-        @if(project.HelpSkills != null)
+        @if(project.HelpSkills != null && project.HelpSkills.Length != 0)
         {
             for(int i = 0; i < project.HelpSkills.Count(); i++)
             {
@@ -85,17 +85,17 @@
             Help Description
         </h5>
         <p>
-            @project.HelpWanted;
+            @project.HelpWanted
         </p>
 
         <h5>
             Contact Info:
         </h5>
-        <p>
+        <a href = @("https://profiles.csh.rit.edu/user/" + @Project.UserName)>
             <Button>
                 Contact
             </Button>
-        </p>
+        </a>
     }
 
 </div>

@@ -89,6 +89,12 @@
         {
             skillsArray = helpSkills.Split(',');
         }
+
+        Console.WriteLine(helpSkills);
+
+        for(int i = 0; i < skillsArray.Length; i++)
+            Console.WriteLine(skillsArray[i]);
+
         Project newProj = new Project(Project.UserName, projName, projDesc, helpWanted, skillsArray, helpType, teamArray, progress);
 
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
