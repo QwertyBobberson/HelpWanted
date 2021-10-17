@@ -13,6 +13,7 @@
         <input placeholder="Project Description" @bind="projDesc">
     </div>
     <div>
+        Help Type:
         <select id="helpType" name="helpType" @bind="helpType">
             @{
                 Enums.HelpTypes[] helpTypes = Enum.GetValues<Enums.HelpTypes>(); 
@@ -38,6 +39,7 @@
         <input placeholder = "Team Members" @bind="teamMembers">
     </div>
     <div>
+        Progress:
         <select id="progress" name="progress" @bind="progress">
             @{
                 Enums.Progress[] progresses = Enum.GetValues<Enums.Progress>(); 
