@@ -25,7 +25,7 @@ namespace HelpWanted.Pages
             logger = _logger;
         }
 
-        public async void OnGet()
+        public void OnGet()
         {
             MongoDBAccess db = new MongoDBAccess(MongoDBAccess.databaseName);
             Projects = db.GetItems<Project>(MongoDBAccess.databaseName);
