@@ -45,16 +45,10 @@ namespace HelpWanted
                 options.Authority= Environment.GetEnvironmentVariable("OIDC_AUTHORITY");
                 options.ClientId = Environment.GetEnvironmentVariable("CLIENT_ID");
                 options.ClientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET");
-
+                
                 options.CallbackPath = new PathString("/signin-oidc");
 
                 options.ResponseType="code";
-
-                options.Events.OnRedirectToIdentityProvider = async redirect =>
-                {
-                    redirect.ProtocolMessage.RedirectUri = Environment.GetEnvironmentVariable("REDIRECT_URI");
-                    await Task.FromResult(0);
-                };
 
                 options.SaveTokens = true;
             });
@@ -85,6 +79,11 @@ namespace HelpWanted
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto
+            });
 
             app.UseEndpoints(endpoints =>
             {
