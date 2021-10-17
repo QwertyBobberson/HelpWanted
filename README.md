@@ -6,4 +6,4 @@ The website assumes a MongoDB database is set up on localhost, otherwise the web
 
 Alternatively, the project can be run in a docker image with docker-compose or a mongodb access URI can be passed in through enviroment variables
 
-In order for the website to work, you must set a client id, client secret, and oidc authority in Properties/launchSettings.json (or any other method of passing in enviroment variables)
+In order for the website to work, you must set a client id, client secret, redirect uri, and oidc authority in Properties/launchSettings.json (or any other method of passing in enviroment variables)
