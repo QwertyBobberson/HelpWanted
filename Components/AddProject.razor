@@ -51,9 +51,6 @@
         </select>
     </div>
     <div>
-        <input placeholder="Contact Info" @bind="contactInfo">
-    </div>
-    <div>
         <button @onclick="Submit" align="center">
             Submit
         </button>
@@ -68,7 +65,6 @@
     string teamMembers;
     Enums.Progress progress;
     Enums.HelpTypes helpType;
-    string contactInfo;
     string helpSkills;
 
     void Submit()
@@ -106,6 +102,5 @@
         helpWanted = null;
         helpType = 0;
         progress = 0;
-        contactInfo = null;
     }
 }
