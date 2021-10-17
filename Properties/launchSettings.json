@@ -25,8 +25,7 @@
         "MONGODB_URI": "mongodb://localhost",
         "CLIENT_SECRET": "SET TO SECRET",
         "CLIENT_ID": "SET TO ID",
-        "OIDC_AUTHORITY": "SET TO AUTHORITY",
-        "Test THings": "OIFH"
+        "OIDC_AUTHORITY": "SET TO AUTHORITY"
       }
     }
   }
