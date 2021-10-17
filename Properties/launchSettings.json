@@ -23,9 +23,9 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "MONGODB_URI": "mongodb://localhost",
-        "CLIENT_SECRET": "testing",
-        "CLIENT_ID": "helpwanted",
-        "OIDC_AUTHORITY": "https://sso.csh.rit.edu/auth/realms/csh"
+        "CLIENT_SECRET": "INSERT SECRET",
+        "CLIENT_ID": "INSERT ID",
+        "OIDC_AUTHORITY": "INSERT AUTHORITY"
       }
     }
   }
