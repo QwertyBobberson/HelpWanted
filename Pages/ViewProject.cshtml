@@ -87,12 +87,11 @@
         <p>
             @project.HelpWanted
         </p>
-
-        <h5>
-            Contact Info:
-        </h5>
         @if(project.Name != Project.UserName)
         {
+            <h5>
+                Contact Info:
+            </h5>
             <a href = @("https://profiles.csh.rit.edu/user/" + @project.Name)>
                 <Button>
                     Contact
