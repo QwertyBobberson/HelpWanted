@@ -33,7 +33,7 @@
         }
     }
     <p class="badge badge-primary">
-        @Project.UserName
+        @project.Name
     </p>
 
     <h5>
@@ -93,7 +93,7 @@
         </h5>
         @if(project.Name != Project.UserName)
         {
-            <a href = @("https://profiles.csh.rit.edu/user/" + @Project.UserName)>
+            <a href = @("https://profiles.csh.rit.edu/user/" + @project.Name)>
                 <Button>
                     Contact
                 </Button>

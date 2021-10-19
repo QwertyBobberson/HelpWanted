@@ -23,10 +23,9 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "MONGODB_URI": "mongodb://localhost",
-        "CLIENT_SECRET": "INSERT SECRET",
-        "CLIENT_ID": "INSERT ID",
-        "OIDC_AUTHORITY": "INSERT AUTHORITY"
-        "REDIRECT_URI": "INSERT REDIRECT URI"
+        "CLIENT_SECRET": "INSERT CLIENT SECRET HERE",
+        "CLIENT_ID": "INSERT CLIENT ID HERE",
+        "OIDC_AUTHORITY": "INSERT AUTHORITY HERE"
       }
     }
   }
