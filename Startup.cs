@@ -39,34 +39,34 @@ namespace HelpWanted
             services.AddControllers();
             services.AddServerSideBlazor();
 
-            // services.AddAuthentication(options =>
-            // {
-            //     options.DefaultScheme = "Cookies";
-            //     options.DefaultChallengeScheme = "oidc";
-            // }).AddCookie().AddOpenIdConnect("oidc", options =>
-            // {
-            //     options.Authority= Environment.GetEnvironmentVariable("OIDC_AUTHORITY");
-            //     options.ClientId = Environment.GetEnvironmentVariable("CLIENT_ID");
-            //     options.ClientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET");
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "oidc";
+            }).AddCookie().AddOpenIdConnect("oidc", options =>
+            {
+                options.Authority= Environment.GetEnvironmentVariable("OIDC_AUTHORITY");
+                options.ClientId = Environment.GetEnvironmentVariable("CLIENT_ID");
+                options.ClientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET");
                 
-            //     options.CallbackPath = new PathString("/signin-oidc");
+                options.CallbackPath = new PathString("/signin-oidc");
 
-            //     options.ResponseType="code";
+                options.ResponseType="code";
 
-            //     options.SaveTokens = true;
-            // });
+                options.SaveTokens = true;
+            });
 
-            // services.Configure<ForwardedHeadersOptions>(options =>
-            // {
-            //     options.ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor | Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto;
-            //     options.KnownNetworks.Clear();
-            //     options.KnownProxies.Clear();
-            // });
+            services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders = Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedFor | Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders.XForwardedProto;
+                options.KnownNetworks.Clear();
+                options.KnownProxies.Clear();
+            });
 
-            // services.AddAuthorization (options =>
-            // {
-            //     options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-            // });
+            services.AddAuthorization (options =>
+            {
+                options.FallbackPolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,8 +93,8 @@ namespace HelpWanted
             app.UseStaticFiles();
 
             app.UseRouting();
-            // app.UseAuthentication();
-            // app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
 
             app.UseEndpoints(endpoints =>
@@ -102,7 +102,7 @@ namespace HelpWanted
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapBlazorHub();
-                //endpoints.MapDefaultControllerRoute().RequireAuthorization();
+                endpoints.MapDefaultControllerRoute().RequireAuthorization();
             });
         }
     }
