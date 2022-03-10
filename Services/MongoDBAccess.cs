@@ -10,7 +10,7 @@ namespace HelpWanted.Services
     {
         IMongoDatabase db;
 
-        public static string databaseName = "Projects";
+        public static string databaseName = "helpwanted";
         public static string collectionName = "Projects";
 
         public MongoDBAccess(string database)
