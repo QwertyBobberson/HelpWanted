@@ -28,7 +28,7 @@ namespace HelpWanted.Pages
         public void OnGet()
         {
             MongoDBAccess db = new MongoDBAccess(MongoDBAccess.databaseName);
-            Projects = db.GetItems<Project>(MongoDBAccess.databaseName);
+            Projects = db.GetItems<Project>(MongoDBAccess.collectionName);
 
 
             foreach(var claim in User.Claims)
