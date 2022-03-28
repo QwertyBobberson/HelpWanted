@@ -11,7 +11,7 @@
 
 @{
     MongoDBAccess db = new MongoDBAccess(MongoDBAccess.databaseName);
-    Project[] Projects = db.GetItems<Project>(MongoDBAccess.databaseName).AsEnumerable<Project>().ToArray<Project>();
+    Project[] Projects = db.GetItems<Project>(MongoDBAccess.collectionName).AsEnumerable<Project>().ToArray<Project>();
 }
 <div class = "card-columns" runat="client">
     @foreach (var project in Projects)

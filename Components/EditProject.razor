@@ -88,7 +88,7 @@
     {
         MongoDBAccess mongoDBAccess = new MongoDBAccess(MongoDBAccess.databaseName);
 
-        List<Project> projects = mongoDBAccess.GetItems<Project>(MongoDBAccess.databaseName);
+        List<Project> projects = mongoDBAccess.GetItems<Project>(MongoDBAccess.collectionName);
 
         for(int i = 0; i < projects.Count(); i++)
         {
